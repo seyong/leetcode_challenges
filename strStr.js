@@ -40,3 +40,26 @@ var strStr = function(haystack, needle) {
     //console.log(reResult);
     return (reResult === null)? -1 : reResult.index;
 };
+
+/**
+ * @param {string} haystack
+ * @param {string} needle
+ * @return {number}
+ */
+ var strStr2 = function(haystack, needle) {
+    // loop version
+    if(needle.length < 1) return 0;
+    
+    let firstCh = needle[0];
+   
+    for(let i=0; i < haystack.length; i++) {      
+        if(firstCh === haystack[i]){
+            const candidate = haystack.substring(i,needle.length+i);
+            if(candidate === needle){
+                return i;
+            }
+        }
+    }
+    
+    return -1;
+};
